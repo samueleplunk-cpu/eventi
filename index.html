@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sito Personalizzabile</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #ff7e5f;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-image {
+            max-height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .content-section {
+            padding: 2rem 0;
+        }
+        
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Layout specific styles */
+        .layout-birthday .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .layout-baptism .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549060278-30e29ad4a9e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .layout-graduation .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        /* Setup page */
+        .setup-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .setup-container h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .layout-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 1rem;
+        }
+        
+        .layout-option {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .layout-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .layout-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+        
+        .layout-preview {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #3a5a80;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-3 {
+            margin-top: 1rem;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .admin-panel.open {
+            right: 0;
+        }
+        
+        .admin-toggle {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+            z-index: 999;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .admin-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .admin-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Setup Page (shown only on first visit) -->
+    <div id="setupPage" class="setup-container">
+        <h1>Configura il tuo sito</h1>
+        <form id="setupForm">
+            <div class="form-group">
+                <label for="siteName">Nome del sito</label>
+                <input type="text" id="siteName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Seleziona il layout</label>
+                <div class="layout-options">
+                    <div class="layout-option" data-layout="birthday">
+                        <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                        <div>18° Compleanno</div>
+                    </div>
+                    <div class="layout-option" data-layout="baptism">
+                        <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1549060278-30e29ad4a9e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                        <div>Battesimo</div>
+                    </div>
+                    <div class="layout-option" data-layout="graduation">
+                        <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                        <div>Laurea</div>
+                    </div>
+                </div>
+                <input type="hidden" id="selectedLayout" required>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn">Salva Configurazione</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Main Website (shown after setup) -->
+    <div id="mainWebsite" class="hidden">
+        <header>
+            <div class="container header-content">
+                <div id="siteLogo" class="logo">Nome Sito</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Chi Siamo</a></li>
+                        <li><a href="#gallery">Galleria</a></li>
+                        <li><a href="#contact">Contatti</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 id="heroTitle">Titolo Principale</h1>
+                <p id="heroSubtitle">Sottotitolo che descrive l'evento</p>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2 id="aboutTitle">Informazioni</h2>
+                <p id="aboutText">Testo informativo sull'evento. Questa sezione può essere personalizzata tramite il pannello di amministrazione.</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <div class="container">
+                <h2 id="galleryTitle">Galleria</h2>
+                <div class="gallery" id="imageGallery">
+                    <!-- Images will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p id="footerText">Testo del footer che può essere personalizzato</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-toggle" id="adminToggle">Admin</div>
+    <div class="admin-panel" id="adminPanel">
+        <h2>Pannello di Amministrazione</h2>
+        
+        <div class="admin-section">
+            <h3>Logo del Sito</h3>
+            <div class="form-group">
+                <label for="logoType">Tipo di logo</label>
+                <select id="logoType">
+                    <option value="text">Testo</option>
+                    <option value="image">Immagine</option>
+                </select>
+            </div>
+            <div class="form-group" id="logoTextGroup">
+                <label for="logoText">Testo del logo</label>
+                <input type="text" id="logoText">
+            </div>
+            <div class="form-group hidden" id="logoImageGroup">
+                <label for="logoImage">Carica immagine logo</label>
+                <input type="file" id="logoImage" accept="image/*">
+                <img id="logoPreview" class="image-preview" src="" alt="Anteprima logo">
+            </div>
+            <button class="btn" id="saveLogo">Salva Logo</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Testi del Sito</h3>
+            <div class="form-group">
+                <label for="heroTitleInput">Titolo Hero</label>
+                <input type="text" id="heroTitleInput">
+            </div>
+            <div class="form-group">
+                <label for="heroSubtitleInput">Sottotitolo Hero</label>
+                <input type="text" id="heroSubtitleInput">
+            </div>
+            <div class="form-group">
+                <label for="aboutTitleInput">Titolo Sezione Informazioni</label>
+                <input type="text" id="aboutTitleInput">
+            </div>
+            <div class="form-group">
+                <label for="aboutTextInput">Testo Sezione Informazioni</label>
+                <textarea id="aboutTextInput" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="galleryTitleInput">Titolo Galleria</label>
+                <input type="text" id="galleryTitleInput">
+            </div>
+            <div class="form-group">
+                <label for="footerTextInput">Testo Footer</label>
+                <input type="text" id="footerTextInput">
+            </div>
+            <button class="btn" id="saveTexts">Salva Testi</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Gestione Immagini</h3>
+            <div class="form-group">
+                <label for="heroImage">Immagine Hero</label>
+                <input type="file" id="heroImage" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="galleryImages">Aggiungi immagini alla galleria</label>
+                <input type="file" id="galleryImages" accept="image/*" multiple>
+            </div>
+            <button class="btn" id="saveImages">Salva Immagini</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Configurazione</h3>
+            <button class="btn btn-secondary" id="resetSetup">Ripristina Configurazione</button>
+        </div>
+    </div>
+
+    <script>
+        // Check if setup is completed
+        document.addEventListener('DOMContentLoaded', function() {
+            const isSetupCompleted = localStorage.getItem('siteSetupCompleted');
+            
+            if (!isSetupCompleted) {
+                document.getElementById('setupPage').classList.remove('hidden');
+                document.getElementById('mainWebsite').classList.add('hidden');
+            } else {
+                document.getElementById('setupPage').classList.add('hidden');
+                document.getElementById('mainWebsite').classList.remove('hidden');
+                loadSiteConfiguration();
+            }
+            
+            // Layout selection
+            const layoutOptions = document.querySelectorAll('.layout-option');
+            layoutOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    layoutOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('selectedLayout').value = this.dataset.layout;
+                });
+            });
+            
+            // Setup form submission
+            document.getElementById('setupForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const siteName = document.getElementById('siteName').value;
+                const selectedLayout = document.getElementById('selectedLayout').value;
+                
+                if (!siteName || !selectedLayout) {
+                    alert('Per favore, compila tutti i campi obbligatori.');
+                    return;
+                }
+                
+                // Save configuration
+                localStorage.setItem('siteName', siteName);
+                localStorage.setItem('siteLayout', selectedLayout);
+                localStorage.setItem('siteSetupCompleted', 'true');
+                
+                // Apply configuration
+                loadSiteConfiguration();
+                
+                // Show main website
+                document.getElementById('setupPage').classList.add('hidden');
+                document.getElementById('mainWebsite').classList.remove('hidden');
+            });
+            
+            // Admin panel toggle
+            document.getElementById('adminToggle').addEventListener('click', function() {
+                document.getElementById('adminPanel').classList.toggle('open');
+            });
+            
+            // Logo type toggle
+            document.getElementById('logoType').addEventListener('change', function() {
+                if (this.value === 'text') {
+                    document.getElementById('logoTextGroup').classList.remove('hidden');
+                    document.getElementById('logoImageGroup').classList.add('hidden');
+                } else {
+                    document.getElementById('logoTextGroup').classList.add('hidden');
+                    document.getElementById('logoImageGroup').classList.remove('hidden');
+                }
+            });
+            
+            // Logo image preview
+            document.getElementById('logoImage').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('logoPreview').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Save logo
+            document.getElementById('saveLogo').addEventListener('click', function() {
+                const logoType = document.getElementById('logoType').value;
+                
+                if (logoType === 'text') {
+                    const logoText = document.getElementById('logoText').value;
+                    if (logoText) {
+                        localStorage.setItem('siteLogoType', 'text');
+                        localStorage.setItem('siteLogoText', logoText);
+                        updateSiteLogo();
+                        alert('Logo salvato con successo!');
+                    } else {
+                        alert('Inserisci un testo per il logo.');
+                    }
+                } else {
+                    const logoFile = document.getElementById('logoImage').files[0];
+                    if (logoFile) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            localStorage.setItem('siteLogoType', 'image');
+                            localStorage.setItem('siteLogoImage', e.target.result);
+                            updateSiteLogo();
+                            alert('Logo salvato con successo!');
+                        };
+                        reader.readAsDataURL(logoFile);
+                    } else {
+                        alert('Seleziona un\'immagine per il logo.');
+                    }
+                }
+            });
+            
+            // Save texts
+            document.getElementById('saveTexts').addEventListener('click', function() {
+                const heroTitle = document.getElementById('heroTitleInput').value;
+                const heroSubtitle = document.getElementById('heroSubtitleInput').value;
+                const aboutTitle = document.getElementById('aboutTitleInput').value;
+                const aboutText = document.getElementById('aboutTextInput').value;
+                const galleryTitle = document.getElementById('galleryTitleInput').value;
+                const footerText = document.getElementById('footerTextInput').value;
+                
+                localStorage.setItem('heroTitle', heroTitle);
+                localStorage.setItem('heroSubtitle', heroSubtitle);
+                localStorage.setItem('aboutTitle', aboutTitle);
+                localStorage.setItem('aboutText', aboutText);
+                localStorage.setItem('galleryTitle', galleryTitle);
+                localStorage.setItem('footerText', footerText);
+                
+                updateSiteTexts();
+                alert('Testi salvati con successo!');
+            });
+            
+            // Save images
+            document.getElementById('saveImages').addEventListener('click', function() {
+                const heroImageFile = document.getElementById('heroImage').files[0];
+                const galleryImageFiles = document.getElementById('galleryImages').files;
+                
+                if (heroImageFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        localStorage.setItem('heroImage', e.target.result);
+                        updateHeroImage();
+                    };
+                    reader.readAsDataURL(heroImageFile);
+                }
+                
+                if (galleryImageFiles.length > 0) {
+                    const galleryImages = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+                    
+                    for (let i = 0; i < galleryImageFiles.length; i++) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            galleryImages.push(e.target.result);
+                            localStorage.setItem('galleryImages', JSON.stringify(galleryImages));
+                            updateGalleryImages();
+                        };
+                        reader.readAsDataURL(galleryImageFiles[i]);
+                    }
+                    
+                    alert('Immagini salvate con successo!');
+                }
+            });
+            
+            // Reset setup
+            document.getElementById('resetSetup').addEventListener('click', function() {
+                if (confirm('Sei sicuro di voler ripristinare la configurazione? Tutte le impostazioni verranno cancellate.')) {
+                    localStorage.clear();
+                    document.getElementById('setupPage').classList.remove('hidden');
+                    document.getElementById('mainWebsite').classList.add('hidden');
+                    document.getElementById('adminPanel').classList.remove('open');
+                }
+            });
+            
+            // Load admin panel data
+            loadAdminPanelData();
+        });
+        
+        function loadSiteConfiguration() {
+            // Load site name
+            const siteName = localStorage.getItem('siteName');
+            if (siteName) {
+                document.title = siteName;
+            }
+            
+            // Load layout
+            const siteLayout = localStorage.getItem('siteLayout');
+            if (siteLayout) {
+                document.body.className = `layout-${siteLayout}`;
+            }
+            
+            // Update all site elements
+            updateSiteLogo();
+            updateSiteTexts();
+            updateHeroImage();
+            updateGalleryImages();
+        }
+        
+        function updateSiteLogo() {
+            const logoType = localStorage.getItem('siteLogoType');
+            const siteLogoElement = document.getElementById('siteLogo');
+            
+            if (logoType === 'text') {
+                const logoText = localStorage.getItem('siteLogoText');
+                if (logoText) {
+                    siteLogoElement.textContent = logoText;
+                    siteLogoElement.classList.remove('logo-image');
+                }
+            } else if (logoType === 'image') {
+                const logoImage = localStorage.getItem('siteLogoImage');
+                if (logoImage) {
+                    siteLogoElement.innerHTML = `<img src="${logoImage}" alt="Logo" class="logo-image">`;
+                    siteLogoElement.classList.add('logo-image');
+                }
+            } else {
+                // Default to site name
+                const siteName = localStorage.getItem('siteName');
+                if (siteName) {
+                    siteLogoElement.textContent = siteName;
+                }
+            }
+        }
+        
+        function updateSiteTexts() {
+            const heroTitle = localStorage.getItem('heroTitle');
+            const heroSubtitle = localStorage.getItem('heroSubtitle');
+            const aboutTitle = localStorage.getItem('aboutTitle');
+            const aboutText = localStorage.getItem('aboutText');
+            const galleryTitle = localStorage.getItem('galleryTitle');
+            const footerText = localStorage.getItem('footerText');
+            
+            if (heroTitle) document.getElementById('heroTitle').textContent = heroTitle;
+            if (heroSubtitle) document.getElementById('heroSubtitle').textContent = heroSubtitle;
+            if (aboutTitle) document.getElementById('aboutTitle').textContent = aboutTitle;
+            if (aboutText) document.getElementById('aboutText').textContent = aboutText;
+            if (galleryTitle) document.getElementById('galleryTitle').textContent = galleryTitle;
+            if (footerText) document.getElementById('footerText').textContent = footerText;
+        }
+        
+        function updateHeroImage() {
+            const heroImage = localStorage.getItem('heroImage');
+            if (heroImage) {
+                document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${heroImage}')`;
+            }
+        }
+        
+        function updateGalleryImages() {
+            const galleryImages = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+            const galleryElement = document.getElementById('imageGallery');
+            
+            galleryElement.innerHTML = '';
+            
+            galleryImages.forEach(imageSrc => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `<img src="${imageSrc}" alt="Galleria">`;
+                galleryElement.appendChild(galleryItem);
+            });
+        }
+        
+        function loadAdminPanelData() {
+            // Load current values into admin panel
+            document.getElementById('logoText').value = localStorage.getItem('siteLogoText') || '';
+            document.getElementById('heroTitleInput').value = localStorage.getItem('heroTitle') || '';
+            document.getElementById('heroSubtitleInput').value = localStorage.getItem('heroSubtitle') || '';
+            document.getElementById('aboutTitleInput').value = localStorage.getItem('aboutTitle') || '';
+            document.getElementById('aboutTextInput').value = localStorage.getItem('aboutText') || '';
+            document.getElementById('galleryTitleInput').value = localStorage.getItem('galleryTitle') || '';
+            document.getElementById('footerTextInput').value = localStorage.getItem('footerText') || '';
+            
+            const logoType = localStorage.getItem('siteLogoType') || 'text';
+            document.getElementById('logoType').value = logoType;
+            
+            if (logoType === 'image') {
+                document.getElementById('logoTextGroup').classList.add('hidden');
+                document.getElementById('logoImageGroup').classList.remove('hidden');
+                const logoImage = localStorage.getItem('siteLogoImage');
+                if (logoImage) {
+                    document.getElementById('logoPreview').src = logoImage;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
