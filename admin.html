@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Sito Eventi</title>
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-form">
+            <h1>Accesso Amministrazione</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required value="admin">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required value="admin">
+                </div>
+                <button type="submit" class="btn btn-primary">Accedi</button>
+            </form>
+            <div class="login-info">
+                <p><strong>Credenziali predefinite:</strong></p>
+                <p>Username: <strong>admin</strong></p>
+                <p>Password: <strong>admin</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h1>Pannello di Amministrazione</h1>
+                <div class="admin-actions">
+                    <button id="previewBtn" class="btn btn-secondary">Anteprima Sito</button>
+                    <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-sidebar">
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="#general" class="nav-link active">Generale</a></li>
+                        <li><a href="#content" class="nav-link">Contenuti</a></li>
+                        <li><a href="#images" class="nav-link">Immagini</a></li>
+                        <li><a href="#layout" class="nav-link">Layout</a></li>
+                        <li><a href="#settings" class="nav-link">Impostazioni</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="admin-content">
+                <!-- General Section -->
+                <section id="general" class="admin-section active">
+                    <h2>Impostazioni Generali</h2>
+                    
+                    <div class="admin-card">
+                        <h3>Logo del Sito</h3>
+                        <div class="form-group">
+                            <label for="logoType">Tipo di logo</label>
+                            <select id="logoType">
+                                <option value="text">Testo</option>
+                                <option value="image">Immagine</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="logoTextGroup">
+                            <label for="logoText">Testo del logo</label>
+                            <input type="text" id="logoText" placeholder="Inserisci il testo del logo">
+                        </div>
+                        <div class="form-group hidden" id="logoImageGroup">
+                            <label for="logoImage">Carica immagine logo</label>
+                            <input type="file" id="logoImage" accept="image/*">
+                            <div id="logoPreviewContainer" class="image-preview-container">
+                                <img id="logoPreview" class="image-preview" src="" alt="Anteprima logo">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="saveLogo">Salva Logo</button>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Informazioni Sito</h3>
+                        <div class="form-group">
+                            <label for="siteName">Nome del sito</label>
+                            <input type="text" id="siteName" placeholder="Inserisci il nome del sito">
+                        </div>
+                        <button class="btn btn-primary" id="saveSiteInfo">Salva Informazioni</button>
+                    </div>
+                </section>
+
+                <!-- Content Section -->
+                <section id="content" class="admin-section">
+                    <h2>Gestione Contenuti</h2>
+                    
+                    <div class="admin-card">
+                        <h3>Sezione Hero</h3>
+                        <div class="form-group">
+                            <label for="heroTitleInput">Titolo Hero</label>
+                            <input type="text" id="heroTitleInput" placeholder="Titolo principale">
+                        </div>
+                        <div class="form-group">
+                            <label for="heroSubtitleInput">Sottotitolo Hero</label>
+                            <input type="text" id="heroSubtitleInput" placeholder="Sottotitolo descrittivo">
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Sezione Informazioni</h3>
+                        <div class="form-group">
+                            <label for="aboutTitleInput">Titolo Sezione</label>
+                            <input type="text" id="aboutTitleInput" placeholder="Titolo sezione informazioni">
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutTextInput">Testo Sezione</label>
+                            <textarea id="aboutTextInput" rows="4" placeholder="Testo informativo sull'evento"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Altre Sezioni</h3>
+                        <div class="form-group">
+                            <label for="galleryTitleInput">Titolo Galleria</label>
+                            <input type="text" id="galleryTitleInput" placeholder="Titolo sezione galleria">
+                        </div>
+                        <div class="form-group">
+                            <label for="footerTextInput">Testo Footer</label>
+                            <input type="text" id="footerTextInput" placeholder="Testo del footer">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="saveAllTexts">Salva Tutti i Testi</button>
+                </section>
+
+                <!-- Images Section -->
+                <section id="images" class="admin-section">
+                    <h2>Gestione Immagini</h2>
+                    
+                    <div class="admin-card">
+                        <h3>Immagine Hero</h3>
+                        <div class="form-group">
+                            <label for="heroImage">Seleziona immagine hero</label>
+                            <input type="file" id="heroImage" accept="image/*">
+                        </div>
+                        <div class="image-preview-container">
+                            <img id="heroImagePreview" class="image-preview" src="" alt="Anteprima hero">
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Galleria Immagini</h3>
+                        <div class="form-group">
+                            <label for="galleryImages">Aggiungi immagini alla galleria</label>
+                            <input type="file" id="galleryImages" accept="image/*" multiple>
+                        </div>
+                        <div id="galleryPreview" class="gallery-preview">
+                            <!-- Gallery images will be displayed here -->
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="saveImages">Salva Immagini</button>
+                </section>
+
+                <!-- Layout Section -->
+                <section id="layout" class="admin-section">
+                    <h2>Personalizzazione Layout</h2>
+                    
+                    <div class="admin-card">
+                        <h3>Seleziona Tema</h3>
+                        <div class="layout-options">
+                            <div class="layout-option" data-layout="birthday">
+                                <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                                <div>18° Compleanno</div>
+                            </div>
+                            <div class="layout-option" data-layout="baptism">
+                                <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1549060278-30e29ad4a9e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                                <div>Battesimo</div>
+                            </div>
+                            <div class="layout-option" data-layout="graduation">
+                                <div class="layout-preview" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')"></div>
+                                <div>Laurea</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Personalizzazione Colori</h3>
+                        <div class="color-options">
+                            <div class="form-group">
+                                <label for="primaryColor">Colore Primario</label>
+                                <input type="color" id="primaryColor" value="#4a6fa5">
+                            </div>
+                            <div class="form-group">
+                                <label for="secondaryColor">Colore Secondario</label>
+                                <input type="color" id="secondaryColor" value="#ff7e5f">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="saveLayout">Salva Layout</button>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="admin-section">
+                    <h2>Impostazioni Sistema</h2>
+                    
+                    <div class="admin-card">
+                        <h3>Manutenzione</h3>
+                        <p>Qui puoi gestire le impostazioni di sistema e effettuare operazioni di manutenzione.</p>
+                        
+                        <div class="danger-zone">
+                            <h4>Area Pericolosa</h4>
+                            <p>Queste operazioni non possono essere annullate.</p>
+                            <button class="btn btn-danger" id="resetSetup">Ripristina Configurazione Completa</button>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Esporta/Importa Configurazione</h3>
+                        <div class="form-group">
+                            <label for="exportConfig">Esporta configurazione corrente</label>
+                            <button class="btn btn-secondary" id="exportConfig">Esporta Config</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="importConfig">Importa configurazione</label>
+                            <input type="file" id="importConfig" accept=".json">
+                            <button class="btn btn-secondary" id="importConfigBtn">Importa Config</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Notification System -->
+        <div id="notification" class="notification hidden">
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

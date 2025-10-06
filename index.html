@@ -250,62 +250,16 @@
             margin-top: 1rem;
         }
         
-        /* Admin Panel */
-        .admin-panel {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100vh;
-            background: white;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-            transition: right 0.3s;
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-        
-        .admin-panel.open {
-            right: 0;
-        }
-        
-        .admin-toggle {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px 0 0 5px;
-            cursor: pointer;
-            z-index: 999;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-        
-        .admin-section {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .admin-section h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .image-preview {
-            max-width: 100%;
-            height: auto;
-            margin-top: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px;
-        }
-        
         .hidden {
             display: none;
+        }
+
+        /* Admin link in setup */
+        .admin-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
         }
     </style>
 </head>
@@ -342,6 +296,10 @@
                 <button type="submit" class="btn">Salva Configurazione</button>
             </div>
         </form>
+
+        <div class="admin-link">
+            <p>Per accedere al pannello di amministrazione, vai su: <strong>admin.html</strong></p>
+        </div>
     </div>
 
     <!-- Main Website (shown after setup) -->
@@ -388,80 +346,6 @@
                 <p id="footerText">Testo del footer che può essere personalizzato</p>
             </div>
         </footer>
-    </div>
-
-    <!-- Admin Panel -->
-    <div class="admin-toggle" id="adminToggle">Admin</div>
-    <div class="admin-panel" id="adminPanel">
-        <h2>Pannello di Amministrazione</h2>
-        
-        <div class="admin-section">
-            <h3>Logo del Sito</h3>
-            <div class="form-group">
-                <label for="logoType">Tipo di logo</label>
-                <select id="logoType">
-                    <option value="text">Testo</option>
-                    <option value="image">Immagine</option>
-                </select>
-            </div>
-            <div class="form-group" id="logoTextGroup">
-                <label for="logoText">Testo del logo</label>
-                <input type="text" id="logoText">
-            </div>
-            <div class="form-group hidden" id="logoImageGroup">
-                <label for="logoImage">Carica immagine logo</label>
-                <input type="file" id="logoImage" accept="image/*">
-                <img id="logoPreview" class="image-preview" src="" alt="Anteprima logo">
-            </div>
-            <button class="btn" id="saveLogo">Salva Logo</button>
-        </div>
-        
-        <div class="admin-section">
-            <h3>Testi del Sito</h3>
-            <div class="form-group">
-                <label for="heroTitleInput">Titolo Hero</label>
-                <input type="text" id="heroTitleInput">
-            </div>
-            <div class="form-group">
-                <label for="heroSubtitleInput">Sottotitolo Hero</label>
-                <input type="text" id="heroSubtitleInput">
-            </div>
-            <div class="form-group">
-                <label for="aboutTitleInput">Titolo Sezione Informazioni</label>
-                <input type="text" id="aboutTitleInput">
-            </div>
-            <div class="form-group">
-                <label for="aboutTextInput">Testo Sezione Informazioni</label>
-                <textarea id="aboutTextInput" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="galleryTitleInput">Titolo Galleria</label>
-                <input type="text" id="galleryTitleInput">
-            </div>
-            <div class="form-group">
-                <label for="footerTextInput">Testo Footer</label>
-                <input type="text" id="footerTextInput">
-            </div>
-            <button class="btn" id="saveTexts">Salva Testi</button>
-        </div>
-        
-        <div class="admin-section">
-            <h3>Gestione Immagini</h3>
-            <div class="form-group">
-                <label for="heroImage">Immagine Hero</label>
-                <input type="file" id="heroImage" accept="image/*">
-            </div>
-            <div class="form-group">
-                <label for="galleryImages">Aggiungi immagini alla galleria</label>
-                <input type="file" id="galleryImages" accept="image/*" multiple>
-            </div>
-            <button class="btn" id="saveImages">Salva Immagini</button>
-        </div>
-        
-        <div class="admin-section">
-            <h3>Configurazione</h3>
-            <button class="btn btn-secondary" id="resetSetup">Ripristina Configurazione</button>
-        </div>
     </div>
 
     <script>
@@ -511,130 +395,10 @@
                 // Show main website
                 document.getElementById('setupPage').classList.add('hidden');
                 document.getElementById('mainWebsite').classList.remove('hidden');
+
+                // Create admin.html file reference (for information only)
+                console.log('Admin panel available at: admin.html');
             });
-            
-            // Admin panel toggle
-            document.getElementById('adminToggle').addEventListener('click', function() {
-                document.getElementById('adminPanel').classList.toggle('open');
-            });
-            
-            // Logo type toggle
-            document.getElementById('logoType').addEventListener('change', function() {
-                if (this.value === 'text') {
-                    document.getElementById('logoTextGroup').classList.remove('hidden');
-                    document.getElementById('logoImageGroup').classList.add('hidden');
-                } else {
-                    document.getElementById('logoTextGroup').classList.add('hidden');
-                    document.getElementById('logoImageGroup').classList.remove('hidden');
-                }
-            });
-            
-            // Logo image preview
-            document.getElementById('logoImage').addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('logoPreview').src = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-            
-            // Save logo
-            document.getElementById('saveLogo').addEventListener('click', function() {
-                const logoType = document.getElementById('logoType').value;
-                
-                if (logoType === 'text') {
-                    const logoText = document.getElementById('logoText').value;
-                    if (logoText) {
-                        localStorage.setItem('siteLogoType', 'text');
-                        localStorage.setItem('siteLogoText', logoText);
-                        updateSiteLogo();
-                        alert('Logo salvato con successo!');
-                    } else {
-                        alert('Inserisci un testo per il logo.');
-                    }
-                } else {
-                    const logoFile = document.getElementById('logoImage').files[0];
-                    if (logoFile) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            localStorage.setItem('siteLogoType', 'image');
-                            localStorage.setItem('siteLogoImage', e.target.result);
-                            updateSiteLogo();
-                            alert('Logo salvato con successo!');
-                        };
-                        reader.readAsDataURL(logoFile);
-                    } else {
-                        alert('Seleziona un\'immagine per il logo.');
-                    }
-                }
-            });
-            
-            // Save texts
-            document.getElementById('saveTexts').addEventListener('click', function() {
-                const heroTitle = document.getElementById('heroTitleInput').value;
-                const heroSubtitle = document.getElementById('heroSubtitleInput').value;
-                const aboutTitle = document.getElementById('aboutTitleInput').value;
-                const aboutText = document.getElementById('aboutTextInput').value;
-                const galleryTitle = document.getElementById('galleryTitleInput').value;
-                const footerText = document.getElementById('footerTextInput').value;
-                
-                localStorage.setItem('heroTitle', heroTitle);
-                localStorage.setItem('heroSubtitle', heroSubtitle);
-                localStorage.setItem('aboutTitle', aboutTitle);
-                localStorage.setItem('aboutText', aboutText);
-                localStorage.setItem('galleryTitle', galleryTitle);
-                localStorage.setItem('footerText', footerText);
-                
-                updateSiteTexts();
-                alert('Testi salvati con successo!');
-            });
-            
-            // Save images
-            document.getElementById('saveImages').addEventListener('click', function() {
-                const heroImageFile = document.getElementById('heroImage').files[0];
-                const galleryImageFiles = document.getElementById('galleryImages').files;
-                
-                if (heroImageFile) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        localStorage.setItem('heroImage', e.target.result);
-                        updateHeroImage();
-                    };
-                    reader.readAsDataURL(heroImageFile);
-                }
-                
-                if (galleryImageFiles.length > 0) {
-                    const galleryImages = JSON.parse(localStorage.getItem('galleryImages') || '[]');
-                    
-                    for (let i = 0; i < galleryImageFiles.length; i++) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            galleryImages.push(e.target.result);
-                            localStorage.setItem('galleryImages', JSON.stringify(galleryImages));
-                            updateGalleryImages();
-                        };
-                        reader.readAsDataURL(galleryImageFiles[i]);
-                    }
-                    
-                    alert('Immagini salvate con successo!');
-                }
-            });
-            
-            // Reset setup
-            document.getElementById('resetSetup').addEventListener('click', function() {
-                if (confirm('Sei sicuro di voler ripristinare la configurazione? Tutte le impostazioni verranno cancellate.')) {
-                    localStorage.clear();
-                    document.getElementById('setupPage').classList.remove('hidden');
-                    document.getElementById('mainWebsite').classList.add('hidden');
-                    document.getElementById('adminPanel').classList.remove('open');
-                }
-            });
-            
-            // Load admin panel data
-            loadAdminPanelData();
         });
         
         function loadSiteConfiguration() {
@@ -717,29 +481,6 @@
                 galleryItem.innerHTML = `<img src="${imageSrc}" alt="Galleria">`;
                 galleryElement.appendChild(galleryItem);
             });
-        }
-        
-        function loadAdminPanelData() {
-            // Load current values into admin panel
-            document.getElementById('logoText').value = localStorage.getItem('siteLogoText') || '';
-            document.getElementById('heroTitleInput').value = localStorage.getItem('heroTitle') || '';
-            document.getElementById('heroSubtitleInput').value = localStorage.getItem('heroSubtitle') || '';
-            document.getElementById('aboutTitleInput').value = localStorage.getItem('aboutTitle') || '';
-            document.getElementById('aboutTextInput').value = localStorage.getItem('aboutText') || '';
-            document.getElementById('galleryTitleInput').value = localStorage.getItem('galleryTitle') || '';
-            document.getElementById('footerTextInput').value = localStorage.getItem('footerText') || '';
-            
-            const logoType = localStorage.getItem('siteLogoType') || 'text';
-            document.getElementById('logoType').value = logoType;
-            
-            if (logoType === 'image') {
-                document.getElementById('logoTextGroup').classList.add('hidden');
-                document.getElementById('logoImageGroup').classList.remove('hidden');
-                const logoImage = localStorage.getItem('siteLogoImage');
-                if (logoImage) {
-                    document.getElementById('logoPreview').src = logoImage;
-                }
-            }
         }
     </script>
 </body>
