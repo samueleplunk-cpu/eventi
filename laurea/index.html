@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurea - Sito Eventi</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo" id="siteLogo">
+                    <!-- Logo will be populated via JavaScript -->
+                </div>
+                <h1 id="siteName">Laurea</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#graduate">Il Laureato</a></li>
+                    <li><a href="#thesis">Tesi</a></li>
+                    <li><a href="#gallery">Galleria</a></li>
+                    <li><a href="#thanks">Ringraziamenti</a></li>
+                    <li><a href="#contact">Contatti</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-background" id="heroBackground">
+            <!-- Background image will be set via JavaScript -->
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="academic-cap">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1 id="heroTitle">Laurea Magistrale</h1>
+                <p id="heroSubtitle">Celebrazione del percorso accademico</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Giorni</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Ore</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minuti</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Secondi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graduate Section -->
+    <section id="graduate" class="graduate">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="graduateTitle">Il Laureato</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="graduate-content">
+                <div class="graduate-image">
+                    <div class="image-placeholder" id="graduateImage">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="graduate-info">
+                    <h3 id="graduateName">Nome Cognome</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Università</h4>
+                                <p id="graduateUniversity">Nome Università</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Corso di Laurea</h4>
+                                <p id="graduateCourse">Corso di Laurea</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Data della Laurea</h4>
+                                <p id="graduateDate">DD/MM/YYYY</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Voto di Laurea</h4>
+                                <p id="graduateGrade">110/110</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thesis Section -->
+    <section id="thesis" class="thesis">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="thesisTitle">Tesi di Laurea</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="thesis-content">
+                <div class="thesis-main">
+                    <h3 id="thesisTopic">Titolo della Tesi</h3>
+                    <p id="thesisAbstract">Abstract della tesi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="thesis-details">
+                        <div class="detail-item">
+                            <h4>Relatore</h4>
+                            <p id="thesisSupervisor">Prof. Nome Cognome</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Correlatore</h4>
+                            <p id="thesisCoSupervisor">Prof. Nome Cognome</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="thesis-decoration">
+                    <div class="thesis-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="galleryTitle">Galleria</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery images will be populated via JavaScript -->
+                <div class="gallery-item empty">
+                    <i class="fas fa-plus"></i>
+                    <p>Aggiungi immagini dalla sezione admin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thanks Section -->
+    <section id="thanks" class="thanks">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ringraziamenti</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="thanks-content">
+                <div class="thanks-text" id="thanksText">
+                    <p>Desidero ringraziare tutte le persone che mi hanno supportato durante questo percorso accademico. Un ringraziamento speciale va alla mia famiglia, ai miei amici, ai professori e a tutti coloro che hanno creduto in me.</p>
+                </div>
+                <div class="thanks-decoration">
+                    <div class="thanks-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Location della Cerimonia</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="map-content">
+                <div class="map-info">
+                    <h3 id="ceremonyLocation">Aula Magna - Università</h3>
+                    <p id="ceremonyAddress">Via dell'Università, 123 - Città</p>
+                    <p id="ceremonyDateTime">DD/MM/YYYY - Ore HH:MM</p>
+                    <div class="location-details">
+                        <div class="detail">
+                            <i class="fas fa-clock"></i>
+                            <span id="ceremonyTime">Ore HH:MM</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-calendar"></i>
+                            <span id="ceremonyDate">DD/MM/YYYY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="mapPlaceholder">
+                        <i class="fas fa-map"></i>
+                        <p>Mappa della location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contatti</h2>
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informazioni di Contatto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Il Laureato</h4>
+                            <p id="contactName">Nome Cognome</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p id="contactEmail">email@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefono</h4>
+                            <p id="contactPhone">+39 123 456 7890</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Invia un Messaggio</h3>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <input type="text" id="senderName" placeholder="Il tuo nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="senderEmail" placeholder="La tua email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="senderMessage" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo" id="footerLogo">
+                        <!-- Logo will be populated via JavaScript -->
+                    </div>
+                    <p id="footerText">Celebrazione del percorso accademico</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Link Rapidi</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#graduate">Il Laureato</a></li>
+                        <li><a href="#thesis">Tesi</a></li>
+                        <li><a href="#gallery">Galleria</a></li>
+                        <li><a href="#thanks">Ringraziamenti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Seguici</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

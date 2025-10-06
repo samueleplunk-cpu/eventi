@@ -358,8 +358,15 @@
                 document.getElementById('mainWebsite').classList.add('hidden');
             } else {
                 document.getElementById('setupPage').classList.add('hidden');
-                document.getElementById('mainWebsite').classList.remove('hidden');
-                loadSiteConfiguration();
+                // Controlla se è selezionato il layout laurea
+                const siteLayout = localStorage.getItem('siteLayout');
+                if (siteLayout === 'graduation') {
+                    // Reindirizza al layout laurea
+                    window.location.href = 'laurea/index.html';
+                } else {
+                    document.getElementById('mainWebsite').classList.remove('hidden');
+                    loadSiteConfiguration();
+                }
             }
             
             // Layout selection
@@ -389,14 +396,19 @@
                 localStorage.setItem('siteLayout', selectedLayout);
                 localStorage.setItem('siteSetupCompleted', 'true');
                 
-                // Apply configuration
+                // Se è selezionato il layout laurea, reindirizza
+                if (selectedLayout === 'graduation') {
+                    window.location.href = 'laurea/index.html';
+                    return;
+                }
+                
+                // Altrimenti applica la configurazione normale
                 loadSiteConfiguration();
                 
                 // Show main website
                 document.getElementById('setupPage').classList.add('hidden');
                 document.getElementById('mainWebsite').classList.remove('hidden');
 
-                // Create admin.html file reference (for information only)
                 console.log('Admin panel available at: admin.html');
             });
         });
