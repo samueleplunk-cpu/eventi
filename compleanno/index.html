@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compleanno Speciale</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Palloncini animati -->
+    <div class="balloons"></div>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Buon Compleanno!</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Un giorno speciale per una persona speciale</p>
+            <div class="countdown-container">
+                <h3>Conto alla rovescia</h3>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <p>Giorni</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Ore</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Minuti</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Secondi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Sezione Il Festeggiato -->
+    <section id="festeggiato" class="section festeggiato">
+        <div class="container">
+            <h2 class="section-title">Il Festeggiato</h2>
+            <div class="festeggiato-content">
+                <div class="festeggiato-image">
+                    <img id="festeggiato-img" src="assets/images/festeggiato.jpg" alt="Il Festeggiato">
+                    <div class="age-badge" id="age-badge">30</div>
+                </div>
+                <div class="festeggiato-info">
+                    <h3 id="festeggiato-nome">Nome Festeggiato</h3>
+                    <p id="festeggiato-descrizione">Una persona speciale che merita una festa indimenticabile! Quest'anno compie <span id="festeggiato-eta">30</span> anni e non vediamo l'ora di celebrare insieme questo giorno speciale.</p>
+                    <div class="festeggiato-details">
+                        <div class="detail-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span id="festeggiato-data">15 Settembre 2023</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-star"></i>
+                            <span id="festeggiato-segno">Vergine</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-heart"></i>
+                            <span id="festeggiato-passioni">Viaggi, Musica, Cucina</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione La Festa -->
+    <section id="festa" class="section festa">
+        <div class="container">
+            <h2 class="section-title">La Festa</h2>
+            <div class="festa-content">
+                <div class="festa-info">
+                    <div class="info-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Data e Ora</h4>
+                        <p id="festa-data">Sabato, 15 Settembre 2023</p>
+                        <p id="festa-ora">Dalle 18:00 in poi</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p id="festa-luogo">Villa dei Fiori</p>
+                        <p id="festa-indirizzo">Via delle Rose 123, Città</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h4>Dress Code</h4>
+                        <p id="festa-dresscode">Festivo e Colorato</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-music"></i>
+                        <h4>Tema</h4>
+                        <p id="festa-tema">Anni '80</p>
+                    </div>
+                </div>
+                <div class="festa-descrizione">
+                    <h3>Cosa Aspettarsi</h3>
+                    <p id="festa-descrizione-testo">Una serata indimenticabile piena di sorprese, musica, balli e tante risate! Preparatevi a festeggiare in grande stile con un tema anni '80 che ci riporterà indietro nel tempo. Ci saranno giochi, musica dal vivo e una torta speciale che non dimenticherete facilmente!</p>
+                    <div class="highlights">
+                        <div class="highlight">
+                            <i class="fas fa-cocktail"></i>
+                            <span>Open Bar</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-utensils"></i>
+                            <span>Buffet Speciale</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-music"></i>
+                            <span>DJ Set</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-camera"></i>
+                            <span>Fotobooth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Lista Regali -->
+    <section id="regali" class="section regali">
+        <div class="container">
+            <h2 class="section-title">Lista Regali</h2>
+            <div class="regali-content">
+                <div class="regali-intro">
+                    <p>La vostra presenza è il regalo più importante, ma se desiderate farmi un pensiero, ecco alcune idee che mi piacerebbero molto!</p>
+                </div>
+                <div class="regali-list">
+                    <div class="regalo-item">
+                        <i class="fas fa-book"></i>
+                        <h4>Libri</h4>
+                        <p>Romanzi contemporanei o classici intramontabili</p>
+                    </div>
+                    <div class="regalo-item">
+                        <i class="fas fa-wine-bottle"></i>
+                        <h4>Vini Pregiati</h4>
+                        <p>Per la mia piccola cantina in crescita</p>
+                    </div>
+                    <div class="regalo-item">
+                        <i class="fas fa-plane"></i>
+                        <h4>Esperienze</h4>
+                        <p>Biglietti per concerti, mostre o weekend fuori porta</p>
+                    </div>
+                    <div class="regalo-item">
+                        <i class="fas fa-gift"></i>
+                        <h4>Sorpresa</h4>
+                        <p>Qualcosa che pensi mi piacerà - mi fido del tuo gusto!</p>
+                    </div>
+                </div>
+                <div class="regalo-preferito">
+                    <h3>Regalo Preferito</h3>
+                    <p id="regalo-preferito-testo">Un buono per un corso di cucina italiana! Ho sempre voluto imparare a fare la pasta fatta in casa come la faceva mia nonna.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Galleria -->
+    <section id="galleria" class="section galleria">
+        <div class="container">
+            <h2 class="section-title">Galleria Foto</h2>
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery1.jpg" alt="Ricordo 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery2.jpg" alt="Ricordo 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery3.jpg" alt="Ricordo 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery4.jpg" alt="Ricordo 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery5.jpg" alt="Ricordo 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery6.jpg" alt="Ricordo 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Ringraziamenti -->
+    <section id="ringraziamenti" class="section ringraziamenti">
+        <div class="container">
+            <h2 class="section-title">Ringraziamenti Speciali</h2>
+            <div class="ringraziamenti-content">
+                <p id="ringraziamenti-testo">Un enorme grazie a tutti coloro che hanno reso possibile questa giornata speciale. In particolare, vorrei ringraziare:</p>
+                <div class="ringraziamenti-list">
+                    <div class="ringraziamento-item">
+                        <h4>I miei genitori</h4>
+                        <p>Per il loro amore incondizionato e supporto costante</p>
+                    </div>
+                    <div class="ringraziamento-item">
+                        <h4>I miei amici più cari</h4>
+                        <p>Per rendere ogni giorno più luminoso</p>
+                    </div>
+                    <div class="ringraziamento-item">
+                        <h4>Tutti gli invitati</h4>
+                        <p>Per aver condiviso con me questo giorno speciale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Mappa -->
+    <section id="mappa" class="section mappa">
+        <div class="container">
+            <h2 class="section-title">Dove Siamo</h2>
+            <div class="mappa-content">
+                <div class="mappa-info">
+                    <h3>Location della Festa</h3>
+                    <p id="mappa-luogo">Villa dei Fiori</p>
+                    <p id="mappa-indirizzo">Via delle Rose 123, Città</p>
+                    <p id="mappa-istruzioni">Parcheggio disponibile all'interno della struttura. La villa si trova a 10 minuti a piedi dalla stazione centrale.</p>
+                    <div class="trasporti">
+                        <h4>Come Raggiungerci</h4>
+                        <ul>
+                            <li><strong>Auto:</strong> Uscita autostradale "Città Nord", seguire indicazioni per centro</li>
+                            <li><strong>Treno:</strong> Stazione Centrale, poi autobus linea 5 (fermata "Rose")</li>
+                            <li><strong>Bus:</strong> Linee 5, 12 e 24 fermano a 200 metri</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mappa-container">
+                    <div id="map" class="map-placeholder">
+                        <p>Mappa interattiva della location</p>
+                        <p><small>(Integrare con Google Maps o servizio mappe preferito)</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section id="contatti" class="section contatti">
+        <div class="container">
+            <h2 class="section-title">Conferma la Tua Presenza</h2>
+            <div class="contatti-content">
+                <div class="contatti-info">
+                    <h3>RSVP</h3>
+                    <p>Conferma la tua presenza entro il <strong id="rsvp-scadenza">10 Settembre 2023</strong></p>
+                    <div class="contatti-details">
+                        <div class="contatto-item">
+                            <i class="fas fa-phone"></i>
+                            <span id="contatto-telefono">+39 123 456 7890</span>
+                        </div>
+                        <div class="contatto-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="contatto-email">compleanno@example.com</span>
+                        </div>
+                        <div class="contatto-item">
+                            <i class="fas fa-user-friends"></i>
+                            <span id="contatto-referente">Maria - Organizzatrice</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rsvp-form">
+                    <form id="form-rsvp">
+                        <div class="form-group">
+                            <label for="nome">Nome e Cognome *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="partecipazione">Partecipazione *</label>
+                            <select id="partecipazione" name="partecipazione" required>
+                                <option value="">Seleziona</option>
+                                <option value="si">Parteciperò con gioia!</option>
+                                <option value="no">Mi dispiace, non potrò esserci</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ospiti">Numero di ospiti</label>
+                            <input type="number" id="ospiti" name="ospiti" min="0" max="5" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="messaggio">Messaggio (opzionale)</label>
+                            <textarea id="messaggio" name="messaggio" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Invia Conferma</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Buon Compleanno!</h3>
+                    <p>Celebrando un giorno speciale</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Compleanno Speciale. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
