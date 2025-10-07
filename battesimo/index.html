@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battesimo - Sito Evento</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" id="siteLogo">
+                    <i class="fas fa-dove"></i>
+                    <span id="siteName">Battesimo</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#battezzato">Il Battezzato</a></li>
+                        <li><a href="#cerimonia">La Cerimonia</a></li>
+                        <li><a href="#padrini">Padrini e Madrine</a></li>
+                        <li><a href="#galleria">Galleria</a></li>
+                        <li><a href="#ringraziamenti">Ringraziamenti</a></li>
+                        <li><a href="#contatti">Contatti</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="water-animation"></div>
+            <div class="light-rays"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="heroTitle">Battesimo di <span class="highlight">[Nome]</span></h1>
+                <p id="heroSubtitle">Un giorno speciale per celebrare la vita e la fede</p>
+                <div class="countdown-container">
+                    <h3>Countdown alla Cerimonia</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Giorni</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Ore</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minuti</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Secondi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Il Battezzato Section -->
+    <section id="battezzato" class="section battezzato-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Il Battezzato</h2>
+                <div class="section-divider">
+                    <i class="fas fa-cross"></i>
+                </div>
+            </div>
+            <div class="battezzato-content">
+                <div class="battezzato-image">
+                    <div class="image-frame">
+                        <img id="battezzatoPhoto" src="assets/images/placeholder-baby.jpg" alt="Il Battezzato">
+                        <div class="frame-decoration"></div>
+                    </div>
+                </div>
+                <div class="battezzato-info">
+                    <h3 id="battezzatoNome">Nome del Battezzato</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-baby"></i>
+                            <div>
+                                <h4>Data di Nascita</h4>
+                                <p id="battezzatoNascita">[Data di nascita]</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-weight"></i>
+                            <div>
+                                <h4>Peso alla Nascita</h4>
+                                <p id="battezzatoPeso">[Peso]</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <div>
+                                <h4>Lunghezza</h4>
+                                <p id="battezzatoLunghezza">[Lunghezza]</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Ora di Nascita</h4>
+                                <p id="battezzatoOra">[Ora]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="battezzato-message">
+                        <p id="battezzatoDescrizione">Breve descrizione o messaggio speciale per il battezzato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Cerimonia Section -->
+    <section id="cerimonia" class="section cerimonia-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>La Cerimonia</h2>
+                <div class="section-divider">
+                    <i class="fas fa-church"></i>
+                </div>
+            </div>
+            <div class="cerimonia-content">
+                <div class="cerimonia-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Data e Ora</h4>
+                            <p id="cerimoniaData">[Data della cerimonia]</p>
+                            <p id="cerimoniaOra">[Ora della cerimonia]</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Chiesa</h4>
+                            <p id="cerimoniaChiesa">[Nome della chiesa]</p>
+                            <p id="cerimoniaIndirizzo">[Indirizzo della chiesa]</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-user-alt"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Celebrante</h4>
+                            <p id="cerimoniaCelebrante">[Nome del celebrante]</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Ricevimento</h4>
+                            <p id="ricevimentoLuogo">[Luogo del ricevimento]</p>
+                            <p id="ricevimentoIndirizzo">[Indirizzo del ricevimento]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cerimonia-note">
+                    <h3>Informazioni Aggiuntive</h3>
+                    <p id="cerimoniaNote">Note aggiuntive sulla cerimonia, dress code, o altre informazioni utili per gli ospiti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Padrini e Madrine Section -->
+    <section id="padrini" class="section padrini-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Padrini e Madrine</h2>
+                <div class="section-divider">
+                    <i class="fas fa-hands"></i>
+                </div>
+            </div>
+            <div class="padrini-content">
+                <div class="padrini-grid">
+                    <div class="padrino-card">
+                        <div class="padrino-image">
+                            <img id="padrinoPhoto" src="assets/images/placeholder-person.jpg" alt="Padrino">
+                            <div class="padrino-role">Padrino</div>
+                        </div>
+                        <div class="padrino-info">
+                            <h4 id="padrinoNome">Nome Padrino</h4>
+                            <p id="padrinoRelazione">[Relazione con il battezzato]</p>
+                            <p id="padrinoMessaggio">[Messaggio speciale]</p>
+                        </div>
+                    </div>
+                    <div class="padrino-card">
+                        <div class="padrino-image">
+                            <img id="madrinaPhoto" src="assets/images/placeholder-person.jpg" alt="Madrina">
+                            <div class="padrino-role">Madrina</div>
+                        </div>
+                        <div class="padrino-info">
+                            <h4 id="madrinaNome">Nome Madrina</h4>
+                            <p id="madrinaRelazione">[Relazione con il battezzato]</p>
+                            <p id="madrinaMessaggio">[Messaggio speciale]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galleria Section -->
+    <section id="galleria" class="section galleria-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galleria</h2>
+                <div class="section-divider">
+                    <i class="fas fa-images"></i>
+                </div>
+            </div>
+            <div class="galleria-content">
+                <div class="galleria-grid" id="imageGallery">
+                    <!-- Le immagini verranno caricate dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ringraziamenti Section -->
+    <section id="ringraziamenti" class="section ringraziamenti-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ringraziamenti</h2>
+                <div class="section-divider">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            <div class="ringraziamenti-content">
+                <div class="ringraziamenti-text">
+                    <p id="ringraziamentiTesto">Un sentito ringraziamento a tutti coloro che condivideranno con noi questo giorno speciale. La vostra presenza è il regalo più prezioso.</p>
+                </div>
+                <div class="ringraziamenti-signature">
+                    <p id="ringraziamentiFirma">Con affetto,<br>La Famiglia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mappa Section -->
+    <section class="section mappa-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Location</h2>
+                <div class="section-divider">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </div>
+            <div class="mappa-content">
+                <div class="mappa-container">
+                    <div id="mappa" class="mappa">
+                        <!-- Mappa verrà generata dinamicamente -->
+                        <div class="mappa-placeholder">
+                            <i class="fas fa-map"></i>
+                            <p>Mappa della location</p>
+                        </div>
+                    </div>
+                    <div class="mappa-details">
+                        <div class="location-card">
+                            <h4><i class="fas fa-church"></i> Cerimonia Religiosa</h4>
+                            <p id="mappaChiesaNome">[Nome chiesa]</p>
+                            <p id="mappaChiesaIndirizzo">[Indirizzo chiesa]</p>
+                            <button class="btn btn-outline" id="direzioniChiesaBtn">Ottieni indicazioni</button>
+                        </div>
+                        <div class="location-card">
+                            <h4><i class="fas fa-utensils"></i> Ricevimento</h4>
+                            <p id="mappaRicevimentoNome">[Nome location ricevimento]</p>
+                            <p id="mappaRicevimentoIndirizzo">[Indirizzo ricevimento]</p>
+                            <button class="btn btn-outline" id="direzioniRicevimentoBtn">Ottieni indicazioni</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti Section -->
+    <section id="contatti" class="section contatti-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contatti</h2>
+                <div class="section-divider">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+            <div class="contatti-content">
+                <div class="contatti-info">
+                    <h3>Per informazioni e conferme</h3>
+                    <div class="contatti-list">
+                        <div class="contatto-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4 id="contattoNome1">[Nome contatto 1]</h4>
+                                <p id="contattoTelefono1">[Telefono contatto 1]</p>
+                            </div>
+                        </div>
+                        <div class="contatto-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4 id="contattoNome2">[Nome contatto 2]</h4>
+                                <p id="contattoTelefono2">[Telefono contatto 2]</p>
+                            </div>
+                        </div>
+                        <div class="contatto-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p id="contattoEmail">[Email]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contatti-form">
+                    <h3>Inviaci un messaggio</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Il tuo nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="La tua email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-dove"></i>
+                    <span id="footerSiteName">Battesimo</span>
+                </div>
+                <div class="footer-text">
+                    <p id="footerText">Grazie per condividere con noi questo giorno speciale</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Battesimo - Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

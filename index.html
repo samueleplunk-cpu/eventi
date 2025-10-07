@@ -363,6 +363,9 @@
                 if (siteLayout === 'graduation') {
                     // Reindirizza al layout laurea
                     window.location.href = 'laurea/index.html';
+                } else if (siteLayout === 'baptism') {
+                    // Reindirizza al layout battesimo
+                    window.location.href = 'battesimo/index.html';
                 } else {
                     document.getElementById('mainWebsite').classList.remove('hidden');
                     loadSiteConfiguration();
@@ -399,6 +402,12 @@
                 // Se è selezionato il layout laurea, reindirizza
                 if (selectedLayout === 'graduation') {
                     window.location.href = 'laurea/index.html';
+                    return;
+                }
+                
+                // Se è selezionato il layout battesimo, reindirizza
+                if (selectedLayout === 'baptism') {
+                    window.location.href = 'battesimo/index.html';
                     return;
                 }
                 
