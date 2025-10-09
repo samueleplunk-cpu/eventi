@@ -3,333 +3,1145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compleanno Speciale</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Buon Compleanno!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFD166;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --dark-bg: #1a1a1a;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,107,107,0.1)"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .countdown-item {
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Story Section */
+        .story {
+            background-color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(78,205,196,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .story-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-left: none;
+            border-right: 4px solid var(--primary-color);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            width: 120px;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        /* Timeline Images */
+        .timeline-image {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,209,102,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Party Details Section */
+        .party-details {
+            background-color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .party-details:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,107,107,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .details-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .detail-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rsvp:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(78,205,196,0.1)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .rsvp h2 {
+            color: var(--light-text);
+        }
+
+        .rsvp h2:after {
+            background-color: var(--light-text);
+        }
+
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            font-family: 'Nunito', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,107,107,0.1)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-3px);
+        }
+
+        /* Balloon decorations */
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .balloon:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .balloon:nth-child(2n) {
+            background: var(--secondary-color);
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3n) {
+            background: var(--accent-color);
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .timeline-content {
+                width: 90%;
+                margin: 0 auto 20px;
+            }
+            
+            .story-timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                left: 30px;
+                transform: translateX(0);
+            }
+            
+            .timeline-image {
+                width: 90%;
+                margin: 0 auto 20px;
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--light-text);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                margin: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-number {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 1.8rem;
+            }
+            
+            .rsvp-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Palloncini animati -->
-    <div class="balloons"></div>
-    
+    <!-- Balloon decorations -->
+    <div class="balloon" style="top: 10%; left: 5%;"></div>
+    <div class="balloon" style="top: 15%; left: 15%;"></div>
+    <div class="balloon" style="top: 20%; left: 85%;"></div>
+    <div class="balloon" style="top: 25%; left: 90%;"></div>
+    <div class="balloon" style="top: 60%; left: 8%;"></div>
+    <div class="balloon" style="top: 70%; left: 92%;"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Buon Compleanno!</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Ricordi Speciali</a></li>
+                    <li><a href="#gallery">Galleria</a></li>
+                    <li><a href="#party-details">Dettagli Festa</a></li>
+                    <li><a href="#rsvp">Conferma Partecipazione</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title" id="hero-title">Buon Compleanno!</h1>
-            <p class="hero-subtitle" id="hero-subtitle">Un giorno speciale per una persona speciale</p>
-            <div class="countdown-container">
-                <h3>Conto alla rovescia</h3>
-                <div id="countdown" class="countdown">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <p>Giorni</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <p>Ore</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <p>Minuti</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <p>Secondi</p>
-                    </div>
+            <h1>Buon Compleanno Marco!</h1>
+            <p>Ti aspettiamo per festeggiare insieme questo giorno speciale! Unisciti a noi per una festa indimenticabile.</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Giorni</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Ore</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minuti</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Secondi</span>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <a href="#rsvp" class="btn">Conferma la tua presenza</a>
         </div>
     </section>
 
-    <!-- Sezione Il Festeggiato -->
-    <section id="festeggiato" class="section festeggiato">
+    <!-- Story Section -->
+    <section class="story" id="story">
         <div class="container">
-            <h2 class="section-title">Il Festeggiato</h2>
-            <div class="festeggiato-content">
-                <div class="festeggiato-image">
-                    <img id="festeggiato-img" src="assets/images/festeggiato.jpg" alt="Il Festeggiato">
-                    <div class="age-badge" id="age-badge">30</div>
-                </div>
-                <div class="festeggiato-info">
-                    <h3 id="festeggiato-nome">Nome Festeggiato</h3>
-                    <p id="festeggiato-descrizione">Una persona speciale che merita una festa indimenticabile! Quest'anno compie <span id="festeggiato-eta">30</span> anni e non vediamo l'ora di celebrare insieme questo giorno speciale.</p>
-                    <div class="festeggiato-details">
-                        <div class="detail-item">
-                            <i class="fas fa-birthday-cake"></i>
-                            <span id="festeggiato-data">15 Settembre 2023</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-star"></i>
-                            <span id="festeggiato-segno">Vergine</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-heart"></i>
-                            <span id="festeggiato-passioni">Viaggi, Musica, Cucina</span>
-                        </div>
+            <h2>Ricordi Speciali</h2>
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Il Primo Giorno</h3>
+                        <p>Il giorno in cui sei nato, portando gioia e felicità nella vita di tutti coloro che ti conoscono.</p>
                     </div>
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Primo giorno">
+                    </div>
+                    <div class="timeline-date">1990</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Primo compleanno">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Il Primo Compleanno</h3>
+                        <p>La tua prima torta di compleanno, con tutti i parenti riuniti per festeggiare il tuo primo anno di vita.</p>
+                    </div>
+                    <div class="timeline-date">1991</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Il Diploma</h3>
+                        <p>Il giorno del tuo diploma, un traguardo importante che ha segnato l'inizio di una nuova fase della tua vita.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" alt="Diploma">
+                    </div>
+                    <div class="timeline-date">2008</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80" alt="Viaggio in Giappone">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Viaggio in Giappone</h3>
+                        <p>Il tuo viaggio dei sogni in Giappone, un'avventura che ti ha regalato ricordi indimenticabili.</p>
+                    </div>
+                    <div class="timeline-date">2018</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sezione La Festa -->
-    <section id="festa" class="section festa">
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
         <div class="container">
-            <h2 class="section-title">La Festa</h2>
-            <div class="festa-content">
-                <div class="festa-info">
-                    <div class="info-card">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h4>Data e Ora</h4>
-                        <p id="festa-data">Sabato, 15 Settembre 2023</p>
-                        <p id="festa-ora">Dalle 18:00 in poi</p>
+            <h2>Foto del Compleanno</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Festa di compleanno">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Palloncini colorati">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80" alt="Torta di compleanno">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" alt="Regali di compleanno">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Amici che festeggiano">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Brindisi di compleanno">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Party Details Section -->
+    <section class="party-details" id="party-details">
+        <div class="container">
+            <h2>Dettagli della Festa</h2>
+            <div class="details-container">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="far fa-calendar-alt"></i>
                     </div>
-                    <div class="info-card">
+                    <h3>Data e Ora</h3>
+                    <p>15 Settembre 2023</p>
+                    <p>Inizio festa: 18:00</p>
+                    <p>Cena: 20:00</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h4>Location</h4>
-                        <p id="festa-luogo">Villa dei Fiori</p>
-                        <p id="festa-indirizzo">Via delle Rose 123, Città</p>
                     </div>
-                    <div class="info-card">
-                        <i class="fas fa-tshirt"></i>
-                        <h4>Dress Code</h4>
-                        <p id="festa-dresscode">Festivo e Colorato</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-music"></i>
-                        <h4>Tema</h4>
-                        <p id="festa-tema">Anni '80</p>
-                    </div>
-                </div>
-                <div class="festa-descrizione">
-                    <h3>Cosa Aspettarsi</h3>
-                    <p id="festa-descrizione-testo">Una serata indimenticabile piena di sorprese, musica, balli e tante risate! Preparatevi a festeggiare in grande stile con un tema anni '80 che ci riporterà indietro nel tempo. Ci saranno giochi, musica dal vivo e una torta speciale che non dimenticherete facilmente!</p>
-                    <div class="highlights">
-                        <div class="highlight">
-                            <i class="fas fa-cocktail"></i>
-                            <span>Open Bar</span>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-utensils"></i>
-                            <span>Buffet Speciale</span>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-music"></i>
-                            <span>DJ Set</span>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-camera"></i>
-                            <span>Fotobooth</span>
-                        </div>
-                    </div>
+                    <h3>Location</h3>
+                    <p>Villa dei Fiori</p>
+                    <p>Via delle Rose, 123</p>
+                    <p>Milano, Italia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sezione Lista Regali -->
-    <section id="regali" class="section regali">
+    <!-- RSVP Section -->
+    <section class="rsvp" id="rsvp">
         <div class="container">
-            <h2 class="section-title">Lista Regali</h2>
-            <div class="regali-content">
-                <div class="regali-intro">
-                    <p>La vostra presenza è il regalo più importante, ma se desiderate farmi un pensiero, ecco alcune idee che mi piacerebbero molto!</p>
+            <h2>Conferma la Tua Partecipazione</h2>
+            <p>Saremmo felici di averti con noi in questo giorno speciale</p>
+            <form class="rsvp-form" id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" class="form-control" placeholder="Il tuo nome" required>
                 </div>
-                <div class="regali-list">
-                    <div class="regalo-item">
-                        <i class="fas fa-book"></i>
-                        <h4>Libri</h4>
-                        <p>Romanzi contemporanei o classici intramontabili</p>
-                    </div>
-                    <div class="regalo-item">
-                        <i class="fas fa-wine-bottle"></i>
-                        <h4>Vini Pregiati</h4>
-                        <p>Per la mia piccola cantina in crescita</p>
-                    </div>
-                    <div class="regalo-item">
-                        <i class="fas fa-plane"></i>
-                        <h4>Esperienze</h4>
-                        <p>Biglietti per concerti, mostre o weekend fuori porta</p>
-                    </div>
-                    <div class="regalo-item">
-                        <i class="fas fa-gift"></i>
-                        <h4>Sorpresa</h4>
-                        <p>Qualcosa che pensi mi piacerà - mi fido del tuo gusto!</p>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="La tua email" required>
                 </div>
-                <div class="regalo-preferito">
-                    <h3>Regalo Preferito</h3>
-                    <p id="regalo-preferito-testo">Un buono per un corso di cucina italiana! Ho sempre voluto imparare a fare la pasta fatta in casa come la faceva mia nonna.</p>
+                <div class="form-group">
+                    <label for="guests">Numero di Ospiti</label>
+                    <select id="guests" class="form-control" required>
+                        <option value="" disabled selected>Seleziona il numero</option>
+                        <option value="1">1 (solo io)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Galleria -->
-    <section id="galleria" class="section galleria">
-        <div class="container">
-            <h2 class="section-title">Galleria Foto</h2>
-            <div class="gallery-container">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery1.jpg" alt="Ricordo 1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery2.jpg" alt="Ricordo 2">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery3.jpg" alt="Ricordo 3">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery4.jpg" alt="Ricordo 4">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery5.jpg" alt="Ricordo 5">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gallery6.jpg" alt="Ricordo 6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Ringraziamenti -->
-    <section id="ringraziamenti" class="section ringraziamenti">
-        <div class="container">
-            <h2 class="section-title">Ringraziamenti Speciali</h2>
-            <div class="ringraziamenti-content">
-                <p id="ringraziamenti-testo">Un enorme grazie a tutti coloro che hanno reso possibile questa giornata speciale. In particolare, vorrei ringraziare:</p>
-                <div class="ringraziamenti-list">
-                    <div class="ringraziamento-item">
-                        <h4>I miei genitori</h4>
-                        <p>Per il loro amore incondizionato e supporto costante</p>
-                    </div>
-                    <div class="ringraziamento-item">
-                        <h4>I miei amici più cari</h4>
-                        <p>Per rendere ogni giorno più luminoso</p>
-                    </div>
-                    <div class="ringraziamento-item">
-                        <h4>Tutti gli invitati</h4>
-                        <p>Per aver condiviso con me questo giorno speciale</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Mappa -->
-    <section id="mappa" class="section mappa">
-        <div class="container">
-            <h2 class="section-title">Dove Siamo</h2>
-            <div class="mappa-content">
-                <div class="mappa-info">
-                    <h3>Location della Festa</h3>
-                    <p id="mappa-luogo">Villa dei Fiori</p>
-                    <p id="mappa-indirizzo">Via delle Rose 123, Città</p>
-                    <p id="mappa-istruzioni">Parcheggio disponibile all'interno della struttura. La villa si trova a 10 minuti a piedi dalla stazione centrale.</p>
-                    <div class="trasporti">
-                        <h4>Come Raggiungerci</h4>
-                        <ul>
-                            <li><strong>Auto:</strong> Uscita autostradale "Città Nord", seguire indicazioni per centro</li>
-                            <li><strong>Treno:</strong> Stazione Centrale, poi autobus linea 5 (fermata "Rose")</li>
-                            <li><strong>Bus:</strong> Linee 5, 12 e 24 fermano a 200 metri</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mappa-container">
-                    <div id="map" class="map-placeholder">
-                        <p>Mappa interattiva della location</p>
-                        <p><small>(Integrare con Google Maps o servizio mappe preferito)</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Contatti -->
-    <section id="contatti" class="section contatti">
-        <div class="container">
-            <h2 class="section-title">Conferma la Tua Presenza</h2>
-            <div class="contatti-content">
-                <div class="contatti-info">
-                    <h3>RSVP</h3>
-                    <p>Conferma la tua presenza entro il <strong id="rsvp-scadenza">10 Settembre 2023</strong></p>
-                    <div class="contatti-details">
-                        <div class="contatto-item">
-                            <i class="fas fa-phone"></i>
-                            <span id="contatto-telefono">+39 123 456 7890</span>
+                <div class="form-group">
+                    <label>Parteciperai?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="yes" name="attendance" value="yes" required>
+                            <label for="yes">Con piacere</label>
                         </div>
-                        <div class="contatto-item">
-                            <i class="fas fa-envelope"></i>
-                            <span id="contatto-email">compleanno@example.com</span>
-                        </div>
-                        <div class="contatto-item">
-                            <i class="fas fa-user-friends"></i>
-                            <span id="contatto-referente">Maria - Organizzatrice</span>
+                        <div class="radio-option">
+                            <input type="radio" id="no" name="attendance" value="no">
+                            <label for="no">Mi dispiace, non posso</label>
                         </div>
                     </div>
                 </div>
-                <div class="rsvp-form">
-                    <form id="form-rsvp">
-                        <div class="form-group">
-                            <label for="nome">Nome e Cognome *</label>
-                            <input type="text" id="nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Telefono</label>
-                            <input type="tel" id="telefono" name="telefono">
-                        </div>
-                        <div class="form-group">
-                            <label for="partecipazione">Partecipazione *</label>
-                            <select id="partecipazione" name="partecipazione" required>
-                                <option value="">Seleziona</option>
-                                <option value="si">Parteciperò con gioia!</option>
-                                <option value="no">Mi dispiace, non potrò esserci</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="ospiti">Numero di ospiti</label>
-                            <input type="number" id="ospiti" name="ospiti" min="0" max="5" value="1">
-                        </div>
-                        <div class="form-group">
-                            <label for="messaggio">Messaggio (opzionale)</label>
-                            <textarea id="messaggio" name="messaggio" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Invia Conferma</button>
-                    </form>
+                <div class="form-group">
+                    <label for="message">Messaggio (opzionale)</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Un messaggio per Marco..."></textarea>
                 </div>
-            </div>
+                <button type="submit" class="btn">Invia Conferma</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Buon Compleanno!</h3>
-                    <p>Celebrando un giorno speciale</p>
+                <div class="footer-column">
+                    <h3>Contatti</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>Marco: +39 123 456 7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>Anna: +39 098 765 4321</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>compleanno@marco.it</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <div class="footer-column">
+                    <h3>Segui il Festeggiato</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Compleanno Speciale. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const birthdayDate = new Date('September 15, 2023 18:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = birthdayDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<h3>Il grande giorno è arrivato! Buon Compleanno!</h3>';
+            }
+        }
+
+        // Initialize countdown
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // RSVP Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                guests: document.getElementById('guests').value,
+                attendance: document.querySelector('input[name="attendance"]:checked').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to localStorage
+            let rsvpData = JSON.parse(localStorage.getItem('birthdayRSVP')) || [];
+            rsvpData.push(formData);
+            localStorage.setItem('birthdayRSVP', JSON.stringify(rsvpData));
+            
+            // Show success message
+            alert('Grazie per la tua conferma! Ti aspettiamo con gioia alla festa.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Load personalized data from localStorage if available
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's personalized data in localStorage
+            const birthdayData = JSON.parse(localStorage.getItem('birthdayData'));
+            
+            if (birthdayData) {
+                // Update name if available
+                if (birthdayData.name) {
+                    document.querySelector('.hero h1').textContent = 'Buon Compleanno ' + birthdayData.name + '!';
+                    document.querySelector('.logo').textContent = 'Buon Compleanno ' + birthdayData.name + '!';
+                }
+                
+                // Update date if available
+                if (birthdayData.date) {
+                    document.querySelector('.detail-card:nth-child(1) p').textContent = birthdayData.date;
+                    
+                    // Update countdown with new date
+                    clearInterval(countdownInterval);
+                    const newBirthdayDate = new Date(birthdayData.date + ' 18:00:00').getTime();
+                    // You would need to update the countdown function to use this new date
+                }
+                
+                // Update location if available
+                if (birthdayData.location) {
+                    document.querySelector('.detail-card:nth-child(2) p:nth-child(3)').textContent = birthdayData.location;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
